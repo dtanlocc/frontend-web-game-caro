@@ -1,0 +1,45 @@
+
+  .table{
+    margin: 0 auto;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #fff;
+  color: #333;
+  border-collapse: collapse;
+  width: 100%; /* Chiều rộng của table là 100% của phần tử cha */
+  max-width: 1000px; /* Giới hạn chiều rộng của table là 800px */
+  th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+  }
+  
+  th {
+    text-align: left;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #fac5c5;
+  }
+  th {
+    background-color: #76fd8f;
+    color: #333;
+  }
+
+
+    tbody tr.highlighted {
+        background-color: #e6f7ff;
+      }
+
+  } 
+  th, td {
+    padding: 10px; /* Thêm padding cho các cell */
+    // text-align: center; /* Canh giữa nội dung của các cell */
+  }
+  
+  th:first-child, td:first-child {
+    width: 10%; /* Chiều rộng của cột đầu tiên là 20% của table */
+  }
+  
+  th:nth-child(2), td:nth-child(2) {
+    width: 30%; /* Chiều rộng của cột thứ hai là 30% của table */
+  }
