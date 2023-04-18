@@ -17,8 +17,8 @@ function RoomTable({ rooms, onRoomClick }) {
         <tr>
           <th>Id</th>
           <th>Status</th>
-          <th>Player 1</th>
-          <th>Player 2</th>
+          <th>ID Player 1</th>
+          <th>ID Player 2</th>
         </tr>
       </thead>
       <tbody>

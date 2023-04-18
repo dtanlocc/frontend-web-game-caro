@@ -1,3 +1,4 @@
+import { config } from '@fortawesome/fontawesome-svg-core';
 import actionTypes from './actionTypes';
 import axios from 'axios';
 export const userLoginSuccess = (userInfo) => ({
@@ -203,3 +204,23 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
         });
     }
 };
+
+export const show_list_room = () => async dispatch => {
+    const config ={
+        headers :{
+            'Content-Type': 'application/json'
+        }
+    }
+
+    // const body = JSON.stringify({ uid, token, new_password, re_new_password });
+
+    try {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/rooms/list/`, config);
+        console.log(res.data)
+        return res.data
+        
+
+    }catch (err){
+        
+    }
+}

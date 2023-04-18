@@ -29,6 +29,10 @@ const actionTypes = Object.freeze({
   FACEBOOK_AUTH_SUCCESS: "FACEBOOK_AUTH_SUCCESS",
   FACEBOOK_AUTH_FAIL: "FACEBOOK_AUTH_FAIL",
   LOGOUT: "LOGOUT",
+  SHOW_LIST_ROOM: "SHOW_LIST_ROOM",
+  SHOW_LIST_ROOM_FAIL: "SHOW_LIST_ROOM_FAIL",
+  ROOM:'ROOM',
+  
 });
 
 export default actionTypes;
