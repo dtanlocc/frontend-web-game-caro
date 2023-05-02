@@ -6,8 +6,7 @@ import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
 
 
-import { userIsAuthenticated,  } from '../hoc/authentication';
-
+// import { userIsAuthenticated,  } from '../hoc/authentication';
 import { path } from '../utils'
 
 import Home from '../routes/Home';
@@ -15,15 +14,17 @@ import Home from '../routes/Home';
 import Login from './Auth/Login';
 // import Register from './Auth/Register';
 
-import Header from './Header/Header';
-import Room from '../routes/Room';
+// import Header from './Header/Header';
+import Room from './Room/Room';
 import Layout from '../hoc/Layout';
-import { CustomToastCloseButton } from '../components/CustomToast';
-import ConfirmModal from '../components/ConfirmModal';
+// import { CustomToastCloseButton } from '../components/CustomToast';
+// import ConfirmModal from '../components/ConfirmModal';
 import Register from './Auth/Register';
 import Repassword from './Auth/Repassword';
 import ConfrimResetPassword from './Auth/ConfrimResetPassword';
 import Activate from './Auth/Activate';
+import CaroBoard from './Room/CaroBoard';
+import UserInfo from './UserInfo/Info';
 
 class App extends Component {
 
@@ -52,7 +53,7 @@ class App extends Component {
                 <Router history={history}>
                 <Layout>
                     <div className="main-container">
-                        <ConfirmModal />
+                        {/* <ConfirmModal /> */}
                         {/* {this.props.isLoggedIn && <Layout />} */}
 
                         <span className="content-container">
@@ -64,6 +65,8 @@ class App extends Component {
                                 <Route path={path.CONFIRM_REPASS} component={(ConfrimResetPassword)} />
                                 <Route path={path.ACTIVATION} component={(Activate)} />
                                 <Route path={path.ROOM} component={(Room)} />
+                                <Route path={path.USER} component={(UserInfo)}/>
+                                <Route path="/play/room/:id" component={(CaroBoard)} />
                                 {/* <Route path={path.USER} component={(Room)} /> */}
                             </Switch>
                             
@@ -73,7 +76,7 @@ class App extends Component {
                             className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
                             autoClose={false} hideProgressBar={true} pauseOnHover={false}
                             pauseOnFocusLoss={true} closeOnClick={false} draggable={false}
-                            closeButton={<CustomToastCloseButton />}
+                            // closeButton={<CustomToastCloseButton />}
                         />
                     </div>
                     </Layout>

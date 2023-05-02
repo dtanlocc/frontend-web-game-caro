@@ -31,8 +31,20 @@ const actionTypes = Object.freeze({
   LOGOUT: "LOGOUT",
   SHOW_LIST_ROOM: "SHOW_LIST_ROOM",
   SHOW_LIST_ROOM_FAIL: "SHOW_LIST_ROOM_FAIL",
+  jOIN_ROOM_SUCCESS: "jOIN_ROOM_SUCCESS",
+  jOIN_ROOM_FAIL : "jOIN_ROOM_FAIL",
   ROOM:'ROOM',
+  MAkE_MOVE_SUCCESS: 'MAkE_MOVE_SUCCESS',
+  MAkE_MOVE_FAIL: 'MAkE_MOVE_FAIL',
+  UPDATE_BOARD_SUCCESS: 'UPDATE_BOARD_SUCCESS',
+  UPDATE_BOARD_FAIL: 'UPDATE_BOARD_FAIL'
+
   
 });
 
 export default actionTypes;
+
+export const pieces = {
+    X: "X",
+    O: "O"
+}

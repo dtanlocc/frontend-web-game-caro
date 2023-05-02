@@ -63,6 +63,12 @@ export default function(state = initialState, action) {
         case actionTypes.PASSWORD_RESET_CONFIRM_FAIL:
         case actionTypes.ACTIVATION_SUCCESS:
         case actionTypes.ACTIVATION_FAIL:
+        case actionTypes.jOIN_ROOM_FAIL:
+        case actionTypes.jOIN_ROOM_SUCCESS:
+        case actionTypes.MAkE_MOVE_FAIL:
+        case actionTypes.MAkE_MOVE_SUCCESS:
+        case actionTypes.UPDATE_BOARD_SUCCESS:
+        case actionTypes.UPDATE_BOARD_FAIL:
             return {
                 ...state
             }

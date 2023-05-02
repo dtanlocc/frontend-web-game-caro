@@ -45,8 +45,8 @@ RoomTable.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       status: PropTypes.string.isRequired,
-      player1: PropTypes.string.isRequired,
-      player2: PropTypes.string.isRequired,
+      player1: PropTypes.number,
+      player2: PropTypes.number,
     })
   ).isRequired,
   onRoomClick: PropTypes.func.isRequired,

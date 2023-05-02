@@ -1,0 +1,110 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+
+  .row {
+    display: flex;
+
+    .cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      cursor: pointer;
+      user-select: none;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.board-background {
+  font-family: "Poppins", sans-serif;
+  background: rgb(34, 193, 195);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #333399 0%, #ff00cc 100%);
+  height: 100vh;
+  .board-container {
+    width: 1000px;
+    height: 1100px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .board-content {
+      padding: 20px;
+
+      .text-board {
+        padding-top: 10px;
+        font-weight: 700;
+        font-size: 45px;
+        text-align: center;
+        user-select: none;
+      }
+
+      .board-input {
+        margin: 10px 0;
+        font-size: 19px;
+        user-select: none;
+      }
+
+      .btn-board {
+        border-radius: 25px;
+        margin-top: 30px;
+        width: 100%;
+        height: 40px;
+        font-size: 1.3rem;
+        color: white;
+        font-weight: 700;
+        background: rgb(34, 193, 195);
+        background: linear-gradient(
+          90deg,
+          rgba(34, 193, 195, 1) 0%,
+          rgba(253, 187, 45, 1) 100%
+        );
+        border: 0px;
+        cursor: pointer;
+        transition: opacity 0.25s ease-out;
+      }
+
+      .forgot-password {
+        font-size: 12px;
+      }
+      .change-password {
+        font-size: 17px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .change-password:hover {
+        color: blue;
+      }
+    }
+    .board-content::before {
+      position: absolute;
+      background: rgba(158, 8, 8, 0.15);
+      inset: 0;
+      transform: rotate(-5deg);
+    }
+  }
+}

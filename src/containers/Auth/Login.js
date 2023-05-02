@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from "connected-react-router";
 import { Link } from 'react-router-dom';
-// import { ConnectedRouter as Router } from 'connected-react-router';
-// import { path } from '../../utils'
-
-import * as actions from "../../store/actions";
-
 import './Login.scss';
-// import Register from './Register';
-// import Header from '../Header/Header';
-// import { FormattedMessage } from 'react-intl';
-// import { handleLoginAPI } from '../../services/userService';
 import { login } from '../../store/actions';
 import { path } from '../../utils';
 
@@ -117,14 +107,6 @@ class Login extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        navigate: (path) => dispatch(push(path)),
-        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
-        // LoginFail: () => dispatch(actions.userLoginFail()),
     };
 };
 

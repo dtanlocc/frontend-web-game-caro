@@ -7,7 +7,8 @@ export const path = {
     REPASS: '/reset-password',
     ROOM: '/room',
     CONFIRM_REPASS: '/password/reset/confirm/:uid/:token',
-    ACTIVATION: '/activate/:uid/:token'
+    ACTIVATION: '/activate/:uid/:token',
+    PLAY: 'play/room/:room_id'
 };
 
 export const languages = {

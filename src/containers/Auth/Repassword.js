@@ -82,16 +82,12 @@ class Repassword extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        language: state.app.language
-    };
-};
 
-const mapDispatchToProps = dispatch => {
-    return {
+
+// const mapDispatchToProps = dispatch => {
+//     return {
         
-    };
-};
+//     };
+// };
 
-export default connect(mapStateToProps, {reset_password})(Repassword);
+export default connect(null, {reset_password})(Repassword);

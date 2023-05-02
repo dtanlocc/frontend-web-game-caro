@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 // import { ConnectedRouter as Router } from 'connected-react-router';
 // import { path } from '../../utils'

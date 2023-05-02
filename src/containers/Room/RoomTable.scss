@@ -4,6 +4,7 @@
     margin-top: 20px;
     cursor: pointer;
     background-color: #fff;
+    user-select: none;
   color: #333;
   border-collapse: collapse;
   width: 100%; /* Chiều rộng của table là 100% của phần tử cha */
@@ -15,6 +16,7 @@
   
   th {
     text-align: left;
+    user-select: none;
   }
   
   tr:nth-child(even) {

@@ -1,4 +1,6 @@
-import { config } from '@fortawesome/fontawesome-svg-core';
+// import { config } from '@fortawesome/fontawesome-svg-core';
+import io from 'socket.io-client';
+
 import actionTypes from './actionTypes';
 import axios from 'axios';
 export const userLoginSuccess = (userInfo) => ({
@@ -139,6 +141,7 @@ export const register = (name, email, password, re_password) => async dispatch =
     }
 };
 
+
 export const verify = (uid, token) => async dispatch => {
     const config = {
         headers: {
@@ -208,7 +211,9 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
 export const show_list_room = () => async dispatch => {
     const config ={
         headers :{
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `JWT ${localStorage.getItem('access')}`,
+                'Accept': 'application/json'
         }
     }
 
@@ -216,7 +221,7 @@ export const show_list_room = () => async dispatch => {
 
     try {
         const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/rooms/list/`, config);
-        console.log(res.data)
+        // console.log(res.data)
         return res.data
         
 
@@ -224,3 +229,146 @@ export const show_list_room = () => async dispatch => {
         
     }
 }
+
+
+
+export const join_room = (room_id) => async dispatch =>{
+    if (localStorage.getItem('access')) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+                'Accept': 'application/json'
+            }
+        }; 
+        const data = ''
+
+        try {
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}/rooms/${room_id}/join/`,data, config);
+    
+            dispatch({
+                type: actionTypes.jOIN_ROOM_SUCCESS,
+            });
+        } catch (err) {
+            dispatch({
+                type: actionTypes.jOIN_ROOM_FAIL
+            });
+        }
+    } else {
+        dispatch({
+            type: actionTypes.jOIN_ROOM_FAIL
+        });
+    }
+}
+
+// const socket = io('http://localhost:23456');
+
+export const make_move = (room_id,x,y) => async dispatch =>{
+    if (localStorage.getItem('access')) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+                'Accept': 'application/json'
+            }
+        }; 
+        const data = JSON.stringify({ x,y});
+
+        try {
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/rooms/${room_id}/make_move/`,data, config);
+            // socket.emit('make_move', { room_id, x, y });
+            return res.data
+        } catch (err) {
+            
+        }
+    } else {
+        
+    }
+}
+
+export const update_board = (room_id) => async dispatch =>{
+    if (localStorage.getItem('access')) {
+        const config ={
+            headers :{
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+                    'Accept': 'application/json'
+            }
+        }
+        // const data = '';
+        // console.log(config);
+
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/rooms/${room_id}/update_board/`, config);
+            console.log('up:',res.data);
+            return res.data;
+        } catch (err) {
+            console.log('up:',err);
+        }
+    } else {
+        
+    }
+}
+export const reset_room = (room_id) => async dispatch =>{
+    if (localStorage.getItem('access')) {
+        const config ={
+            headers :{
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+                    'Accept': 'application/json'
+            }
+        }
+        // const data = '';
+        // console.log(config);
+
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/rooms/${room_id}/reset_room/`, config);
+            // console.log('up:',res.data);
+            return res.data;
+        } catch (err) {
+            console.log('up:',err);
+        }
+    } else {
+        
+    }
+}
+
+export const quit_room = (room_id) => async dispatch =>{
+    if (localStorage.getItem('access')) {
+        const config ={
+            headers :{
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+                    'Accept': 'application/json'
+            }
+        }
+        // const data = '';
+        // console.log(config);
+
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/rooms/${room_id}/reset_room/`, config);
+            // console.log('up:',res.data);
+            return res.data;
+        } catch (err) {
+            console.log('up:',err);
+        }
+    } else {
+        
+    }
+}
+
+export const get_info = () => async dispatch => {
+    const config = {
+        headers :{
+            'Content-Type': 'application/json',
+            'Authorization': `JWT ${localStorage.getItem('access')}`,
+                'Accept': 'application/json'
+        }
+    };
+
+    try {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/v1/api/auth/users/me/ `, config);
+        return res.data
+    } catch (err) {
+    }
+};

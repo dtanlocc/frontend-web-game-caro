@@ -7,7 +7,7 @@ import caro from '../../src/assets/images/caro.png'
 import './Navbar.scss';
 
 const Navbar = ({ isLoggedIn, logout }) => {
-  const [redirect, setRedirect] = useState(false);
+  const [setRedirect] = useState(false);
 
   const handleLogout = () => {
     logout();
